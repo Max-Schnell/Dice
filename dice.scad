@@ -13,14 +13,15 @@ difference() {
     dot(0, 0, dotpos);
     dot(dotpos, 0, 0);
     dot(0, -dotpos, 0);
-    for(pos = [-1.5, 1.5]) {
-        dot(pos, dotpos, pos);
-        dot(dotpos, pos, pos);
-        dot(pos, 0, -dotpos);
-    }
-    for(pos_a = [-1.5, 1.5], pos_b = [-1.5, 1.5]) {
-        dot(-dotpos, pos_a, pos_b);
-        dot(pos_a, -dotpos, pos_b);
-        dot(pos_a, pos_b, -dotpos);
-    }
+    
+    for(pos_a = [-1.5, 1.5]) {
+        dot(pos_a, dotpos, pos_a);
+        dot(dotpos, pos_a, pos_a);
+        dot(pos_a, 0, -dotpos);
+        for(pos_b = [-1.5, 1.5]) {
+            dot(-dotpos, pos_a, pos_b);
+            dot(pos_a, -dotpos, pos_b);
+            dot(pos_a, pos_b, -dotpos);
+        }
+    }     
 }
